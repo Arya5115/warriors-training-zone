@@ -1,0 +1,118 @@
+{
+  "theme": "dark_and_light",
+  "theme_description": "Luxury Gym Feel. Black, Dark Gray, White, Gold, Crimson Red.",
+  "typography": {
+    "headings": {
+      "font_family": "Clash Display, Cabinet Grotesk, sans-serif",
+      "weights": ["600", "700", "900"],
+      "usage": "Use tight letter spacing (tracking-tight). Max size text-5xl to text-6xl+ for H1."
+    },
+    "body": {
+      "font_family": "Manrope, Inter, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "Loose line height (leading-relaxed) for body text."
+    }
+  },
+  "colors": {
+    "primary": {
+      "name": "Crimson Red",
+      "value": "#DC2626",
+      "hover": "#EF4444"
+    },
+    "secondary": {
+      "name": "Luxury Gold",
+      "value": "#D4AF37",
+      "hover": "#FBBF24"
+    },
+    "background_dark": "#0A0A0C",
+    "background_light": "#FAFAFA",
+    "surface_dark": "#18181B",
+    "surface_light": "#FFFFFF",
+    "text_dark_theme": "#F4F4F5",
+    "text_light_theme": "#18181B"
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-white/70 (light) or bg-black/60 (dark) with 1px border border-white/20 (light) or border-white/10 (dark) and shadow-lg.",
+    "gradients": "Gradient Buttons using primary to secondary or primary to dark red. Never full screen backgrounds. Use subtle gradients for membership cards (Silver, Gold, Platinum).",
+    "animations": "Smooth Hover Effects (-translate-y-1), Shimmering Skeleton Loading for async content, staggered entrance lists.",
+    "rounded_cards": "Use rounded-2xl or rounded-3xl for cards. Inner concentric radius for images."
+  },
+  "components": {
+    "cards": "Rounded-2xl, subtle borders, deep ambient shadows. Glassmorphic overlays for floating elements.",
+    "buttons": "Pill-shaped or rounded-full gradient buttons with micro-interactions (scale-95 on active, subtle drop-shadow on hover).",
+    "membership_cards": "Digital Membership Cards with variants: Silver (bg-slate-300 gradient), Gold (bg-yellow-500 gradient), Platinum (bg-slate-800 gradient with metallic shine)."
+  },
+  "grids": {
+    "marketing": "The Tetris Grid. Asymmetric. grid-cols-1 md:grid-cols-12 gap-8.",
+    "dashboard": "High Density Grid. grid-cols-1 md:grid-cols-4 gap-6."
+  },
+  "layouts": {
+    "spacing": "Generous spacing. p-8 to p-12. Avoid default Bootstrap crampness. Add padding to cards to prevent text collision.",
+    "alignment": "Optical alignment over geometric. Left-align dense content. Avoid center-everything."
+  },
+  "motion": {
+    "transitions": "Specific transitions like transition: transform 0.2s ease, opacity 0.2s ease. No 'transition: all'.",
+    "framer_motion": "Use framer-motion for page transitions, staggered card reveals, and dynamic tracing beam borders."
+  },
+  "accessibility": {
+    "contrast": "Ensure APCA/WCAG AA compliance. Use text-shadow over images.",
+    "testing": "All interactive elements MUST include data-testid attribute.",
+    "reduced_motion": "Respect prefers-reduced-motion."
+  },
+  "media": {
+    "images": "Never exceed 80vh on mobile. Max-h-[80vh] md:max-h-none. Always set a background overlay (bg-black/40) for hero texts over images."
+  },
+  "3d_libraries": {
+    "recommended": "Framer Motion for simple card spins and interactive UI. Recharts for Admin dashboard."
+  },
+  "image_urls": {
+    "hero_gym_interior": [
+      {
+        "url": "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg",
+        "description": "Spacious gym interior, high contrast, perfect for hero section"
+      },
+      {
+        "url": "https://images.pexels.com/photos/36877065/pexels-photo-36877065.jpeg",
+        "description": "Modern equipment, city skyline, great for Services or About page"
+      }
+    ],
+    "trainers": [
+      {
+        "url": "https://images.pexels.com/photos/10960029/pexels-photo-10960029.jpeg",
+        "description": "Fitness trainer adjusting wraps, intense look"
+      },
+      {
+        "url": "https://images.pexels.com/photos/3912944/pexels-photo-3912944.jpeg",
+        "description": "Trainer portrait under neon lights"
+      }
+    ],
+    "ecommerce_supplements": [
+      {
+        "url": "https://images.pexels.com/photos/15120889/pexels-photo-15120889.jpeg",
+        "description": "Protein powder shaker dynamic shot"
+      }
+    ],
+    "gallery_workouts": [
+      {
+        "url": "https://images.pexels.com/photos/30283458/pexels-photo-30283458.jpeg",
+        "description": "Muscular man exercising with barbell"
+      }
+    ]
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Prioritize layered designs with depth (z-index hierarchy).",
+    "Avoid generic centered layouts, simplistic gradients, and uniform styling.",
+    "NEVER use pure black or gray, always tint them slightly.",
+    "Add transition for specific properties only (e.g. transform, opacity). DO NOT use 'transition: all'.",
+    "DO NOT align app container globally to center.",
+    "Use modern pill-shaped or sharp button styles with interactive animations.",
+    "NEVER use emojis for icons. Use proper icon libraries like lucide-react or @phosphor-icons/react.",
+    "Implement micro-animations on all interactive elements.",
+    "DO NOT use placeholder image URLs. Use the provided image_urls.",
+    "Ensure all interactive and key informational elements have 'data-testid'.",
+    "Use sonner for toasts.",
+    "DO NOT use a completely transparent background for headers/navbars. Always apply blur/glass effect.",
+    "Build files using standard `.js` and `.jsx` extensions for frontend."
+  ],
+  "instructions_to_main_agent": "Implement a fullstack gym SaaS + E-commerce platform (Warriors Training Zone). Build modern, responsive, highly stylized UI prioritizing luxury athletic vibe. Use the provided image URLs to substitute any placeholders. Apply generous spacing, dark/light toggle logic, and glassmorphism. Create responsive grid layouts. Ensure all interactions use correct Tailwind motion and state changes. Generate code strictly using `.js`/`.jsx` (do NOT use `.tsx`). Attach `data-testid` to all CTAs, forms, and cards."
+}
