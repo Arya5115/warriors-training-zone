@@ -1,6 +1,6 @@
 try:
        from server import app
-   except ImportError:
+except ImportError:
        from .server import app
 
-   __all__ = ["app"]
+__all__ = ["app"]
