@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { api } from "@/services/api";
+import { formatCurrency } from "@/utils/currency";
 
 export default function Checkout() {
   const cart = useCart();
@@ -25,10 +26,15 @@ export default function Checkout() {
     await new Promise((r) => setTimeout(r, 1200));
     try {
       const items = cart.items.map((i) => ({ product_id: i.product.id, quantity: i.quantity }));
-      const { data } = await api.post("/checkout", { items, address: addr, coupon_code: location.state?.coupon || null, payment_method: "phonepe" });
+      const { data } = await api.post("/checkout", {
+        items,
+        address: addr,
+        coupon_code: location.state?.coupon || null,
+        payment_method: "phonepe",
+      });
       toast.success("Payment Successful!");
       navigate("/order-success", { state: { order: data.order } });
-    } catch (e) {
+    } catch {
       toast.error("Payment failed");
       setStep("address");
     } finally {
@@ -43,7 +49,9 @@ export default function Checkout() {
         <div className="md:col-span-2">
           {step === "address" && (
             <div className="rounded-2xl border border-border p-6 space-y-4">
-              <div className="flex items-center gap-2 font-semibold"><MapPin className="w-4 h-4 text-red-500" /> Shipping Address</div>
+              <div className="flex items-center gap-2 font-semibold">
+                <MapPin className="w-4 h-4 text-red-500" /> Shipping Address
+              </div>
               <div className="grid md:grid-cols-2 gap-3">
                 <Input placeholder="Full Name" value={addr.name} onChange={(e) => setAddr({ ...addr, name: e.target.value })} data-testid="addr-name" />
                 <Input placeholder="Phone" value={addr.phone} onChange={(e) => setAddr({ ...addr, phone: e.target.value })} data-testid="addr-phone" />
@@ -70,12 +78,17 @@ export default function Checkout() {
           <div className="space-y-2 text-sm">
             {cart.items.map((i) => (
               <div key={i.product.id} className="flex justify-between">
-                <span className="line-clamp-1">{i.product.name} Ã {i.quantity}</span>
-                <span>â¹{Math.round(i.product.price * (1 - (i.product.discount || 0) / 100)) * i.quantity}</span>
+                <span className="line-clamp-1">{i.product.name} x {i.quantity}</span>
+                <span>{formatCurrency(Math.round(i.product.price * (1 - (i.product.discount || 0) / 100)) * i.quantity)}</span>
               </div>
             ))}
-            <div className="border-t border-border pt-3 mt-3 flex justify-between font-bold"><span>Subtotal</span><span>â¹{Math.round(cart.subtotal)}</span></div>
-            <div className="text-xs text-muted-foreground flex items-center gap-1 mt-2"><CheckCircle2 className="w-3 h-3 text-green-500" /> Secure PhonePe checkout</div>
+            <div className="border-t border-border pt-3 mt-3 flex justify-between font-bold">
+              <span>Subtotal</span>
+              <span>{formatCurrency(Math.round(cart.subtotal))}</span>
+            </div>
+            <div className="text-xs text-muted-foreground flex items-center gap-1 mt-2">
+              <CheckCircle2 className="w-3 h-3 text-green-500" /> Secure PhonePe checkout
+            </div>
           </div>
         </div>
       </div>

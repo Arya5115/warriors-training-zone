@@ -8,13 +8,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <div className="p-2 rounded-xl bg-gradient-to-br from-red-600 to-red-900"><Dumbbell className="w-5 h-5 text-white" /></div>
+            <div className="p-2 rounded-xl bg-gradient-to-br from-red-600 to-red-900">
+              <Dumbbell className="w-5 h-5 text-white" />
+            </div>
             <div>
               <div className="font-display text-2xl tracking-wider text-white">WARRIORS</div>
               <div className="text-[10px] uppercase tracking-[0.3em] text-neutral-500">Training Zone</div>
             </div>
           </div>
-          <p className="text-sm text-neutral-400 leading-relaxed">Forge your body. Sharpen your mind. Join India's most disciplined training community.</p>
+          <p className="text-sm text-neutral-400 leading-relaxed">
+            Forge your body. Sharpen your mind. Join India's most disciplined training community.
+          </p>
           <div className="flex gap-3 mt-5">
             <a href="#" className="p-2 rounded-full border border-white/10 hover:border-yellow-500/50 transition-colors"><Instagram className="w-4 h-4" /></a>
             <a href="#" className="p-2 rounded-full border border-white/10 hover:border-yellow-500/50 transition-colors"><Youtube className="w-4 h-4" /></a>
@@ -50,7 +54,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-neutral-500">
-        Â© {new Date().getFullYear()} Warriors Training Zone. Forged in iron. Built in India.
+        &copy; {new Date().getFullYear()} Warriors Training Zone. Forged in iron. Built in India.
       </div>
     </footer>
   );

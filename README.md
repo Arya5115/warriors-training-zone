@@ -155,7 +155,8 @@ From `C:\warriors`:
 
 ```powershell
 python -m pip install -r backend\requirements.txt
-python -m uvicorn backend.main:app --reload
+cd backend
+python -m uvicorn main:app --reload
 ```
 
 Backend runs on:
@@ -463,8 +464,8 @@ npm run build
 Backend production-style run:
 
 ```powershell
-cd C:\warriors
-python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+cd C:\warriors\backend
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 ## Secret Key Notes
